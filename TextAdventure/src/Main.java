@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    private static final String SCENARIOS_FOLDER = "src\\TextAdventure\\scenarios";
+    private static final String SCENARIOS_FOLDER = "TextAdventure\\src\\TextAdventure\\scenarios";
     private static final Scanner scanner;
 
     public Main() {
