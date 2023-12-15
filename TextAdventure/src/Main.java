@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    private static final String SCENARIOS_FOLDER = "TextAdventure\\src\\TextAdventure\\scenarios";
+    private static final String SCENARIOS_FOLDER = "src\\scenarios";
     private static final Scanner scanner;
 
     public Main() {
@@ -15,7 +15,7 @@ public class Main {
 
     public static void main(String[] args) {
         while (true) {
-            List<String> scenarioList = getScenariosList("src\\TextAdventure\\scenarios");
+            List<String> scenarioList = getScenariosList("src\\scenarios");
             System.out.println("Доступные сценарии:");
 
             for (int i = 0; i < scenarioList.size(); ++i) {
@@ -39,7 +39,7 @@ public class Main {
                 int scenarioNumber = Integer.parseInt(choice);
                 if (scenarioNumber > 0 && scenarioNumber <= scenarioList.size()) {
                     String selectedScenario = (String) scenarioList.get(scenarioNumber - 1);
-                    runScenario("src\\TextAdventure\\scenarios" + File.separator + selectedScenario);
+                    runScenario("src\\scenarios" + File.separator + selectedScenario);
                 } else {
                     System.out.println("Некорректный выбор. Попробуйте еще раз.");
                 }
@@ -102,7 +102,7 @@ public class Main {
     private static void addCustomScenario() {
         System.out.print("Введите название нового сценария: ");
         String newScenarioName = scanner.nextLine();
-        File newScenarioFolder = new File("src\\TextAdventure\\scenarios" + File.separator + newScenarioName);
+        File newScenarioFolder = new File("src\\scenarios" + File.separator + newScenarioName);
         if (newScenarioFolder.exists()) {
             System.out.println("Сценарий с таким названием уже существует.");
         } else {
@@ -213,10 +213,10 @@ public class Main {
         String scenarioNumber = scanner.nextLine();
         if (isNumeric(scenarioNumber)) {
             int number = Integer.parseInt(scenarioNumber);
-            List<String> scenarioList = getScenariosList("src\\TextAdventure\\scenarios");
+            List<String> scenarioList = getScenariosList("src\\scenarios");
             if (number > 0 && number <= scenarioList.size()) {
                 String scenarioToDelete = (String) scenarioList.get(number - 1);
-                File scenarioFolderToDelete = new File("src\\TextAdventure\\scenarios" + File.separator + scenarioToDelete);
+                File scenarioFolderToDelete = new File("src\\scenarios" + File.separator + scenarioToDelete);
                 if (scenarioFolderToDelete.exists()) {
                     deleteDirectory(scenarioFolderToDelete);
                     System.out.println("Сценарий успешно удален.");
