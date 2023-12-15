@@ -108,7 +108,14 @@ public class Main {
         } else {
             if (newScenarioFolder.mkdirs()) {
                 System.out.println("Сценарий успешно создан.");
-                System.out.print("Хотите добавить варианты продолжения для основной истории? (да/нет): ");
+                String newLine = System.lineSeparator();
+                System.out.print("Алгоритм написания сценария:" + newLine +
+                        "1. Сначала пишется история развития для первого выбора, все первые варианты" + newLine +
+                        "2. После вы пишите второй вариант с конца, альтернатива истории первого варианта" + newLine +
+                        "3. Когда вы напишите весь первый выбор, начинается рекурсия для второго варианта," + newLine +
+                        "читайте пункт 1, чтобы закончить историю." + newLine +
+                        "4. Также есть возможность написать другие варианты развития (3,4 и тд.)" + newLine +
+                        "Хотите написатьосновную историю? (да/нет):");
                 String addMainChoices = scanner.nextLine();
                 if (addMainChoices.equalsIgnoreCase("да")) {
                     File mainScenarioFile = new File(newScenarioFolder, "main.txt");
